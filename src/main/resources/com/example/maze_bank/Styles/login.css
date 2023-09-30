@@ -16,6 +16,7 @@
 
 .login_logo_container FontAwesomeIconView {
     -fx-fill: #ecf39e;
+
 }
 
 .account_selector {
