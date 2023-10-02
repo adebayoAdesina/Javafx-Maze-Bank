@@ -23,7 +23,7 @@
       <TextField fx:id="payee_address" promptText="\@payee" styleClass="input_field" />
       <Label text="Password:" />
       <PasswordField fx:id="passwordField" promptText="***********" styleClass="input_field" />
-      <Button mnemonicParsing="false" text="Button" />
+      <Button fx:id="login_button" mnemonicParsing="false" text="Log In" />
       <Pane prefHeight="17.0" prefWidth="356.0">
          <Label fx:id="error_label" styleClass="error_label" />
       </Pane>
