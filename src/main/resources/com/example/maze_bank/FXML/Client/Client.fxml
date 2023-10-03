@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+            xmlns:fx="http://javafx.com/fxml"  fx:id="client_parent"
+            fx:controller="com.example.maze_bank.Controllers.Client.ClientController"
             >
     <left>
         <fx:include source="ClientMenu.fxml"/>
