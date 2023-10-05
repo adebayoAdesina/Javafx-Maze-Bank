@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -18,7 +19,11 @@
    </VBox>
    <VBox layoutX="217.0" layoutY="26.0" prefHeight="360.0" prefWidth="356.0" styleClass="login_form_container" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
       <Label id="choice_prompt_text" text="Choose your account type:" />
-      <ChoiceBox fx:id="account_selector" prefWidth="150.0" styleClass="account_selector" />
+      <ChoiceBox fx:id="account_selector" prefWidth="150.0">
+         <styleClass>
+            <String fx:value="arrow" />
+            <String fx:value="account_selector" />
+         </styleClass></ChoiceBox>
       <Label text="Payee Address:" />
       <TextField fx:id="payee_address" promptText="\@payee" styleClass="input_field" />
       <Label text="Password:" />

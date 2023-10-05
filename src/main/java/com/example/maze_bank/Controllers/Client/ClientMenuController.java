@@ -1,5 +1,6 @@
 package com.example.maze_bank.Controllers.Client;
 
+import com.example.maze_bank.Enums.ClientMenuOption;
 import com.example.maze_bank.Models.Model;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,14 +25,17 @@ public class ClientMenuController implements Initializable {
     private void addListeners() {
         dashboard_btn.setOnAction(event -> onDashBoard());
         transaction_btn.setOnAction(event -> onTransaction());
+        account_btn.setOnAction(event -> onAccount());
     }
 
     private void onDashBoard() {
-        Model.getInstance().getViewFactory().getClientsSelectedItem().set("Dashboard");
+        Model.getInstance().getViewFactory().getClientsSelectedItem().set(ClientMenuOption.DASHBOARD);
     }
 
     private void onTransaction() {
-        Model.getInstance().getViewFactory().getClientsSelectedItem().set("Transactions");
+        Model.getInstance().getViewFactory().getClientsSelectedItem().set(ClientMenuOption.TRANSACTIONS);
     }
+
+    private void onAccount(){ Model.getInstance().getViewFactory().getClientsSelectedItem().set(ClientMenuOption.ACCOUNTS);}
 
 }

@@ -3,9 +3,14 @@
 
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx" fx:id="admin_parent"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.maze_bank.Controllers.Admin.AdminController"
-            prefHeight="400.0" prefWidth="600.0">
+            >
+    <left>
+        <fx:include source="AdminMenu.fxml"/>
+    </left>
+    <center>
+        <fx:include source="CreateClient.fxml"/>
+    </center>
 
-</AnchorPane>
+</BorderPane>

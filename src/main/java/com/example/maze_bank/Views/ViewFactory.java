@@ -1,7 +1,12 @@
 package com.example.maze_bank.Views;
 
 import com.example.maze_bank.App;
+import com.example.maze_bank.Controllers.Admin.AdminController;
 import com.example.maze_bank.Controllers.Client.ClientController;
+import com.example.maze_bank.Enums.AdminMenuOption;
+import com.example.maze_bank.Enums.ClientMenuOption;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -13,16 +18,32 @@ import java.io.IOException;
 
 public class ViewFactory {
 
-    private final StringProperty clientsSelectedItem;
+    /** user **/
+
+    private final ObjectProperty<ClientMenuOption> clientsSelectedItem;
     private AnchorPane dashboardView;
     private  AnchorPane transactionView;
+    private AnchorPane accountView;
 
     public ViewFactory() {
-        this.clientsSelectedItem = new SimpleStringProperty("");
+        this.clientsSelectedItem = new SimpleObjectProperty<>();
+        this.adminSelectedItem = new SimpleObjectProperty<>();
     }
 
-    public StringProperty getClientsSelectedItem() {
+    public ObjectProperty<ClientMenuOption> getClientsSelectedItem() {
         return clientsSelectedItem ;
+    }
+
+    public AnchorPane getAccountView() {
+        if(accountView == null)
+        {
+            try {
+                accountView = new FXMLLoader(App.class.getResource("FXML/Client/Accounts.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return accountView;
     }
 
     public AnchorPane getTransactionView() {
@@ -68,11 +89,54 @@ public class ViewFactory {
 
     public void showClientWindow() {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FXML/Client/Client.fxml"));
-        ClientController clientController = fxmlLoader.getController();
+        ClientController clientController = new ClientController();
+        fxmlLoader.setController(clientController);
         createStage(fxmlLoader);
+    }
+
+    public void showAdminWindow() {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FXML/Admin/Admin.fxml"));
+        AdminController adminController = new AdminController();
+        fxmlLoader.setController(adminController);
+        createStage(fxmlLoader);
+
     }
 
     public void closeStage(Stage stage) {
         stage.close();
+    }
+
+    /** Admin **/
+    private final ObjectProperty<AdminMenuOption> adminSelectedItem;
+    private AnchorPane createClientView;
+
+    private AnchorPane clientView;
+
+    public AnchorPane getCreateClientView() {
+        if (createClientView == null)
+        {
+            try {
+                dashboardView = new FXMLLoader(App.class.getResource("FXML/Admin/CreateClient.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return createClientView;
+    }
+
+    public AnchorPane getClientView() {
+        if (clientView == null)
+        {
+            try {
+                clientView = new FXMLLoader(App.class.getResource("FXML/Admin/Clients.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return clientView;
+    }
+
+    public ObjectProperty<AdminMenuOption> getAdminSelectedItem() {
+        return adminSelectedItem;
     }
 }
