@@ -16,8 +16,8 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Model.getInstance().getViewFactory().getAdminSelectedItem().addListener((observable, oldValue, newValue) -> {
             switch (newValue) {
-
                 case CLIENTS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getClientView());
+                case DEPOSIT -> admin_parent.setCenter(Model.getInstance().getViewFactory().getDepositView());
                 default -> admin_parent.setCenter(Model.getInstance().getViewFactory().getCreateClientView());
             }
         });

@@ -9,6 +9,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -111,12 +112,24 @@ public class ViewFactory {
     private AnchorPane createClientView;
 
     private AnchorPane clientView;
+    private AnchorPane depositView;
+
+    public AnchorPane getDepositView() {
+        if (depositView == null) {
+            try {
+                depositView = new FXMLLoader(App.class.getResource("FXML/Admin/Deposit.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return depositView;
+    }
 
     public AnchorPane getCreateClientView() {
         if (createClientView == null)
         {
             try {
-                dashboardView = new FXMLLoader(App.class.getResource("FXML/Admin/CreateClient.fxml")).load();
+                createClientView = new FXMLLoader(App.class.getResource("FXML/Admin/CreateClient.fxml")).load();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
