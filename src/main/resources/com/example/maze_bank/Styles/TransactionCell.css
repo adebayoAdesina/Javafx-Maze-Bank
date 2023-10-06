@@ -1,0 +1,37 @@
+.cell_container {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, #dddddd, 5, 0, 0,7);
+}
+
+.transaction_icon_container {
+    -fx-background-color: #ffffff;
+    -fx-alignment: center;
+    -fx-spacing: 5;
+}
+
+.transaction_date_label {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-weight: 700;
+}
+
+.transaction_payeeAddress_label {
+    -fx-text-fill: #000000;
+    -fx-font-weight: 700;
+}
+
+.cell_container Line {
+    -fx-stroke: #eeeeee;
+}
+
+.transaction_amount_label {
+    -fx-background-color: #132a13;
+    -fx-background-radius: 2;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 5;
+    -fx-font-weight: 700;
+}
+
+.transaction_amount_label FontAwesomeIconView {
+    -fx-fill: #ffffff;
+}
